@@ -1,0 +1,12 @@
+<%= form_with method: :get, url: static_pages_path do |form| %>
+    <%= form.label :user_id, "Enter a user id: "%>
+    <%= form.text_field :user_id, placeholder: "197715138@N06" %>
+    <%= form.submit "Search" %>
+<% end %>
+
+<% begin %>
+    <% @photo_urls.each do |url| %>
+        <%= image_tag Flickr.url_q(url) %>
+    <% end %>
+<% rescue StandardError => e %>
+<% end %>
